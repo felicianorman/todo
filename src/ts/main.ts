@@ -1,45 +1,39 @@
 import { todos } from "./models/todo";
 
 let wrapper = document.getElementById("todo") as HTMLDivElement;
+let todoInput = document.getElementById("addTodo") as HTMLInputElement;
+let addBtn = document.getElementById("todoBtn") as HTMLButtonElement;
 
 function newTodo() {
-  let todo: todos[] = [
-    new todos("Handla", false),
-    new todos("Skicka post", false),
-    new todos("Gymma", false),
-  ];
-  console.log(todo);
-  createHTML(todo);
+  let todo: todos[] = [];
+
+  addBtn.addEventListener("click", () => {
+    let newTodo = new todos(todoInput.value, false);
+    todo.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(todo));
+    createHTML();
+    todoInput.value = " ";
+  });
 }
 
-function createHTML(mytodos) {
-  localStorage.setItem("todos", JSON.stringify(mytodos));
+function createHTML() {
+  let getTodo: any = localStorage.getItem("todos");
+  let todos = JSON.parse(getTodo);
 
-  for (let i = 0; i < mytodos.length; i++) {
-    console.log(mytodos[i]);
+  for (let i = 0; i < todos.length; i++) {
+    console.log(todos[i]);
 
     let ul = document.createElement("ul") as HTMLUListElement;
     ul.classList.add("list");
     let li = document.createElement("li") as HTMLLIElement;
     li.classList.add("list--item");
 
-    li.innerHTML = mytodos[i].todo;
+    li.innerHTML = todos[i].todo;
 
     ul.appendChild(li);
     wrapper.appendChild(ul);
   }
+
 }
-
-function addTodo() {
-  let todoInput = document.getElementById("addTodo") as HTMLInputElement;
-  let addBtn = document.getElementById("todoBtn") as HTMLButtonElement;
-
-  addBtn.addEventListener("click", () => {
-    console.log(todoInput.value);
-    todoInput.value = "";
-  });
-}
-
-addTodo();
 
 newTodo();
