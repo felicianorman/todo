@@ -12,21 +12,32 @@
       rel="stylesheet"
     />
 
+    <script
+      src="https://kit.fontawesome.com/3dcdd4a12d.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link href="scss/main.scss" rel="stylesheet" />
     <script src="ts/main.ts" defer type="module"></script>
     <title>To Do</title>
   </head>
   <body>
-    <div class="container">
+    <main>
       <h2>To Do</h2>
-      <h3>Lägg till ny todo:</h3>
-      <div class="add">
-        <input type="text" id="addTodo" class="newtodo">
-        <button class="btn" id="todoBtn" class="btn">Lägg till</button>
+
+      <div class="container">
+        <div class="add">
+          <input
+            type="text"
+            id="addTodo"
+            class="newtodo"
+            placeholder="Lägg till ny to do"
+          />
+          <button class="btn" id="todoBtn" class="btn">Lägg till</button>
+        </div>
+
+        <div class="container--todo" id="todo"></div>
       </div>
-  
-      <div class="container--todo" id="todo"></div>
-    </div>
+    </main>
   </body>
 </html>

@@ -1,33 +1,64 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-.container {
+main {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(255, 219, 225);
+  justify-content: center;
+  background-image: url("../assets/wallpaperflare.com_wallpaper.jpg");
+
+  h2 {
+    color: white;
+  }
 }
 
+.container {
+  background-color: #ffffffef;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  min-height: 50vh;
+}
 .newtodo {
-    padding: 5px;
+  padding: 5px;
 }
 
 .btn {
-    background-color: rgb(135, 204, 247);
-    border: none;
-    padding: 5px;
+  background-color: rgb(226, 167, 189);
+  border: none;
+  border-radius: 15px;
+  padding: 8px;
+
+  &:hover {
+    background-color: rgb(239, 188, 207);
+  }
 }
 
 .list {
   &--item {
-    box-shadow: 1px 5px 5px 0.5px rgba(195, 164, 164, 0.5);
-    background-color: rgb(255, 227, 231);
+    // box-shadow: 1px 5px 5px 0.5px rgba(197, 187, 187, 0.5);
+    border-bottom: 1px solid rgb(217, 216, 216);
     width: 50vw;
+    padding: 5px;
     color: rgb(55, 51, 54);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     list-style-type: none;
+
+    .fa-trash {
+        font-size: 1.2em;
+        color: rgb(241, 172, 44);
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
   }
 }
