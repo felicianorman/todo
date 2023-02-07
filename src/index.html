@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <link href="scss/main.scss" rel="stylesheet" />
+    <script src="ts/main.ts" defer type="module"></script>
+    <title>To Do</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>To Do</h2>
+      <h3>Lägg till ny todo:</h3>
+      <div class="add">
+        <input type="text" id="addTodo" class="newtodo">
+        <button class="btn" id="todoBtn" class="btn">Lägg till</button>
+      </div>
+  
+      <div class="container--todo" id="todo"></div>
+    </div>
+  </body>
+</html>

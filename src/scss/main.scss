@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 219, 225);
+}
+
+.newtodo {
+    padding: 5px;
+}
+
+.btn {
+    background-color: rgb(135, 204, 247);
+    border: none;
+    padding: 5px;
+}
+
+.list {
+  &--item {
+    box-shadow: 1px 5px 5px 0.5px rgba(195, 164, 164, 0.5);
+    background-color: rgb(255, 227, 231);
+    width: 50vw;
+    color: rgb(55, 51, 54);
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+}
