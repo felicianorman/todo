@@ -5,12 +5,10 @@ let todoInput = document.getElementById("addTodo") as HTMLInputElement;
 let addBtn = document.getElementById("todoBtn") as HTMLButtonElement;
 let ul = document.createElement("ul") as HTMLUListElement;
 
-let todo: todos[] = JSON.parse(localStorage.getItem("todos") || "[]");
+let todo: todos[] = [];
 
 function newTodo() {
-
   addBtn.addEventListener("click", () => {
-  
     let newTodo = new todos(todoInput.value, false);
     todo.push(newTodo);
 
@@ -21,7 +19,6 @@ function newTodo() {
 
     todoInput.value = " ";
   });
- 
 }
 
 function createHTML() {
@@ -35,21 +32,23 @@ function createHTML() {
     let li = document.createElement("li") as HTMLLIElement;
     li.classList.add("list--item");
 
-    li.innerHTML =
-      todos[i].todo + `<span class="fa-solid fa-trash" id="icon"></span>`;
+    li.innerHTML = todos[i].todo;
     ul.appendChild(li);
+
+    let trashcan = document.createElement("span");
+    trashcan.classList.add("fa-solid", "fa-trash");
+    li.appendChild(trashcan);
+
+    trashcan.addEventListener("click", () => {
+      deleteTodo(todos[i])
+    })
   }
 }
 
-function deleteTodo() {
-  let trashCan = document.querySelectorAll(".fa-trash");
-  trashCan.forEach((remove) => {
-    remove.addEventListener("click", () => {
-      console.log("hejdå");
-    });
-  });
+function deleteTodo(remove) {
+  console.log(remove)
 }
 
 newTodo();
 createHTML();
-deleteTodo();
+
